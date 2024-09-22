@@ -38,3 +38,10 @@ dogs_api_key = "API Key HERE"
 Davon Morris
 
 ## Acknowledgments
+* [Dogs API](https://api-ninjas.com/api/dogs) 
+
+* [Matplotlib Bar Graph Example](https://www.w3schools.com/python/matplotlib_bars.asp) 
+
+* [MatplotLib Bar Graph Configuration](https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_label_demo.html)
+
+
