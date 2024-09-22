@@ -25,11 +25,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-import json
+
+from matplotlib.pyplot import ylabel
 import requests
 import os
 
-from matplotlib.pyplot import ylabel
 
 if os.path.isfile('config.py'):
     from config import dogs_api_key
@@ -45,20 +45,14 @@ if response.status_code == requests.codes.ok:
     print(response.text)
     data = response.json()
     #print(data)
-    x_axis_labels = ('Good with Children', 'Good With Other Dogs', 'Shedding')
-    x_axis = [(data[0]["good_with_children"]),(data[0]["good_with_other_dogs"]),(data[0]["shedding"])]
+    x_axis_labels = ('Good with Children', 'Good With Other Dogs', 'Shedding', "Drool", "Playfulness")
+    x_axis = [(data[0]["good_with_children"]),(data[0]["good_with_other_dogs"]),(data[0]["shedding"]),(data[0]["drooling"]),(data[0]["playfulness"])]
 
-    fig, ax = plt.subplots()
-    bar_container = ax.bar(x_axis_labels, x_axis)
-    ax.set(ylabel='Trait Quality',ylim=(1,5))
-    ax.set_title(f"{name} Breed's Traits", pad=30 )
+    fig, ax = plt.subplots(figsize=((len(x_axis) * 2 + 2),6))
+    bar_container = ax.bar(x_axis_labels, x_axis, width=.5)
+    ax.set(ylabel='Trait Likelihood',ylim=(1,5))
+    ax.set_title(f"{name} Breed's Traits", pad=20 )
     ax.bar_label(bar_container,fmt='{:,.0f}')
-    # bottom = np.zeros(3)
-    # for x_axis_labels, x_axis in x:
-    #     p = ax.bar(x_axis, width, label=x_axis_labels, bottom=bottom)
-    #
-    #     ax.bar_label(p, label_type='center')
-    # ax.set_title(f"{name} breed's traits")
     ax.legend()
     plt.show()
 else:
