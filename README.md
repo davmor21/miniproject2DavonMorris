@@ -30,7 +30,6 @@ pip install -r requirements.txt
 * Create a file named config.py
 * Go to [API Ninjas](https://api-ninjas.com) and create a profile, and put your API key in the config.py file in this format:
 ```angular2html
-dogs_api_url = 'https://api.api-ninjas.com/v1/dogs?name={}'.format(name)
 dogs_api_key = "API Key HERE"
 ```
 
