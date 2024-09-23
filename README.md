@@ -42,6 +42,7 @@ Davon Morris
 
 * [Matplotlib Bar Graph Example](https://www.w3schools.com/python/matplotlib_bars.asp) 
 
-* [MatplotLib Bar Graph Configuration](https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_label_demo.html)
+* [Matplotlib Bar Graph Configuration](https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_label_demo.html)
 
+* [Matplotlib with Panda Dataframes](https://www.geeksforgeeks.org/how-to-plot-a-pandas-dataframe-with-matplotlib/)
 

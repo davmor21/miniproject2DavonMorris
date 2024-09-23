@@ -124,6 +124,7 @@ celerybeat.pid
 # Environments
 .env
 config.py
+charts
 .venv
 env/
 venv/
