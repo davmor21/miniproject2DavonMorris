@@ -1,7 +1,6 @@
 # INF601 - Advanced Programming in Python
 # Davon Morris
 # Mini Project 2
-#import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import requests
