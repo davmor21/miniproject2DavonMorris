@@ -8,12 +8,13 @@ import requests
 import os
 import sys
 
-
+# If config file isn't found, stop script
 if os.path.isfile('config.py'):
     from config import dogs_api_key
 else:
     print("Config file not found. Stopping")
     sys.exit()
+
 # Making charts directory if it doesn't exist
 if not os.path.exists("charts/"):
     os.mkdir("charts/")
@@ -31,7 +32,7 @@ for dog in dog_names:
 
     if response.status_code == requests.codes.ok:
         data = response.json()
-        # Extract relevant traits
+        # Select traits from json
         traits = {
             'name': dog,
             'good_with_children': data[0]["good_with_children"],
@@ -44,7 +45,7 @@ for dog in dog_names:
     else:
         print("Error:", response.status_code, response.text)
 
-# Create a DataFrame from the collected data
+# Create a Panda DataFrame from the collected data
 df = pd.DataFrame(dog_data)
 
 # Define x-axis labels
@@ -59,15 +60,17 @@ for index, row in df.iterrows():
         row["drooling"],
         row["playfulness"]
     ]
-
+    # Making width of graph dynamic based off of the chosen traits
     fig, ax = plt.subplots(figsize=(len(x_axis) * 2 + 2, 6))
     bar_container = ax.bar(x_axis_labels, x_axis, width=0.5)
 
+    # Setting Label for Y-Axis and Title for graph
     ax.set(ylabel='Trait Likelihood', ylim=(0, 5))
     ax.set_title(f"{row['name']} Breed's Traits", pad=20)
-
+    # Setting labels for each trait/bar for graph
     ax.bar_label(bar_container, fmt='{:,.0f}', padding=10)
     ax.legend()
+    # Try saving the graph, and write to console if it fails
     try:
         plt.savefig(f"charts/{row['name']}_plot.png")
         print(f"{row['name']}_plot.png was created and has been saved to the 'charts' folder.")
