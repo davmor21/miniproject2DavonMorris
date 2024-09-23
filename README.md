@@ -11,6 +11,7 @@ The goal is to come up with a question and then see what API I can use to get th
 
 The choice I made was based on an API for dog breeds on [API Ninjas](https://api-ninjas.com/)
 
+
 ## Getting Started
 
 ### Dependencies
@@ -32,7 +33,8 @@ pip install -r requirements.txt
 ```angular2html
 dogs_api_key = "API Key HERE"
 ```
-
+* If you would prefer to choose your own dog breeds, add or remove from the `dog_names` list on line 23
+* The graphs will be created and saved to the ***charts*** directory
 ## Authors
 
 Davon Morris

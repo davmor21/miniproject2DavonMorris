@@ -1,6 +1,7 @@
 # INF601 - Advanced Programming in Python
 # Davon Morris
 # Mini Project 2
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import requests
@@ -23,7 +24,7 @@ dog_names = ['Golden Retriever', 'Doberman', 'Poodle', 'Dachshund', 'Husky']
 # Initialize a list to store data for API Calls
 dog_data = []
 
-# Fetch data from the API for each dog
+# Fetch data from the API for each dog, haha pun
 for dog in dog_names:
     api_url = 'https://api.api-ninjas.com/v1/dogs?name={}'.format(dog)
     response = requests.get(api_url, headers={'X-Api-Key': dogs_api_key})
@@ -67,8 +68,6 @@ for index, row in df.iterrows():
 
     ax.bar_label(bar_container, fmt='{:,.0f}', padding=10)
     ax.legend()
-
-    #plt.show()
     try:
         plt.savefig(f"charts/{row['name']}_plot.png")
         print(f"{row['name']}_plot.png was created and has been saved to the 'charts' folder.")
